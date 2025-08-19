@@ -1,0 +1,65 @@
+_wandb:
+    value:
+        cli_version: 0.21.1
+        e:
+            bi1vda7ybbr757b14ydw9jy9lur5ed9q:
+                apple:
+                    ecpuCores: 4
+                    gpuCores: 8
+                    memoryGb: 16
+                    name: Apple M2
+                    pcpuCores: 4
+                    ramTotalBytes: "17179869184"
+                    swapTotalBytes: "6442450944"
+                codePath: main.py
+                codePathLocal: main.py
+                cpu_count: 8
+                cpu_count_logical: 8
+                disk:
+                    /:
+                        total: "494384795648"
+                        used: "312669540352"
+                email: gtx2shino@gmail.com
+                executable: /Users/shino/my_code/reinforcement/symmetrizer/.venv/bin/python3
+                git:
+                    commit: 8dae02bee2ba7132ae4fb07e07020767d280842c
+                    remote: git@github.com:ElisevanderPol/symmetrizer.git
+                host: shinoair.local
+                memory:
+                    total: "17179869184"
+                os: macOS-15.6-arm64-arm-64bit-Mach-O
+                program: /Users/shino/my_code/reinforcement/symmetrizer/main.py
+                python: CPython 3.13.6
+                root: /Users/shino/my_code/reinforcement/symmetrizer
+                startedAt: "2025-08-18T08:37:01.764002Z"
+                writerId: bi1vda7ybbr757b14ydw9jy9lur5ed9q
+        m: []
+        python_version: 3.13.6
+        t:
+            "1":
+                - 1
+            "2":
+                - 1
+            "3":
+                - 16
+                - 61
+            "4": 3.13.6
+            "5": 0.21.1
+            "12": 0.21.1
+            "13": darwin-arm64
+actor_lr:
+    value: 0.001
+critic_lr:
+    value: 0.01
+epochs:
+    value: 10
+eps:
+    value: 0.2
+gamma:
+    value: 0.98
+hidden_dim:
+    value: 128
+lmbda:
+    value: 0.95
+num_episodes:
+    value: 500

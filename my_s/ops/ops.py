@@ -1,6 +1,5 @@
 import numpy as np
 import torch
-import torch.nn.functional as F
 
 
 def symmetrize_invariant_out(W, group):
@@ -41,7 +40,7 @@ def get_basis(size, group, new_size, space="equivariant"):
     __, s, vh = np.linalg.svd(wvec)
     rank = np.linalg.matrix_rank(wvec)
 
-    if space=="nullspace":
+    if space == "nullspace":
         # If nullspace, remove the first r=rank vectors
         rnk = vh.shape[0] - rank
         vh = vh[rank:]
@@ -51,8 +50,7 @@ def get_basis(size, group, new_size, space="equivariant"):
 
     # Unvectorize W
     w = np.reshape(vh[:rank, ...], indices)
-    print(type(w), w.shape, rank)
-    basis = torch.tensor(w.astype(np.float32), requires_grad=False)
+    basis = w.detach().clone().to(dtype=torch.float32).requires_grad_(False)
     return basis, rank
 
 
@@ -73,7 +71,7 @@ def get_invariant_basis(size, group, new_size, space="equivariant"):
     __, s, vh = np.linalg.svd(wvec)
     rank = np.linalg.matrix_rank(wvec)
 
-    if space=="nullspace":
+    if space == "nullspace":
         # If nullspace, remove the first r=rank vectors
         rnk = vh.shape[0] - rank
         vh = vh[rank:]
@@ -83,7 +81,7 @@ def get_invariant_basis(size, group, new_size, space="equivariant"):
 
     # Unvectorize W
     w = np.reshape(vh[:rank, ...], indices)
-    basis = torch.tensor(w.astype(np.float32), requires_grad=False)
+    basis = w.detach().clone().to(dtype=torch.float32).requires_grad_(False)
     return basis, rank
 
 
@@ -102,9 +100,9 @@ def compute_gain(gain_type, rank, channels_in, channels_out, gr_in, gr_out):
     Compute gain depending on initialization method
     """
     if gain_type == "xavier":
-        gain = np.sqrt(2./(float(rank * channels_out * gr_out)))
+        gain = np.sqrt(2.0 / (float(rank * channels_out * gr_out)))
     elif gain_type == "he":
-        gain = np.sqrt(2./(float(rank * channels_in * gr_in)))
+        gain = np.sqrt(2.0 / (float(rank * channels_in * gr_in)))
     return gain
 
 
@@ -115,7 +113,7 @@ def c2g(tensor, g):
     if g is None:
         return tensor
     b, gc, h, w = tensor.shape
-    tensor = tensor.reshape(b, gc//g, g, h, w)
+    tensor = tensor.reshape(b, gc // g, g, h, w)
     return tensor
 
 
@@ -125,7 +123,7 @@ def g2c(tensor):
     """
     if len(tensor.shape) == 5:
         b, c, g, h, w = tensor.shape
-        tensor = tensor.reshape(b, c*g, h, w)
+        tensor = tensor.reshape(b, c * g, h, w)
     return tensor
 
 
@@ -133,18 +131,16 @@ class GroupRepresentations:
     """
     Class to hold representations
     """
-    def __init__(self, trans_set, name):
-        """
-        """
-        self.representations = trans_set
-        self.name = name
 
-    def __len__(self):
-        """
-        """
+    def __init__(self, trans_set: list[torch.FloatTensor], name: str) -> None:
+        """ """
+        self.representations: list[torch.FloatTensor] = trans_set
+        self.name: str = name
+
+    def __len__(self) -> int:
+        """ """
         return len(self.representations)
 
-    def __getitem__(self, idx):
-        """
-        """
+    def __getitem__(self, idx) -> torch.FloatTensor:
+        """ """
         return self.representations[idx]

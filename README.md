@@ -5,12 +5,12 @@ Symmetrizer code accompanying the paper:
 **MDP Homomorphic Networks: Group Symmetries in Reinforcement Learning**  
 Elise van der Pol, Daniel E. Worrall, Herke van Hoof, Frans A. Oliehoek, Max Welling.  
 
-https://arxiv.org/pdf/2006.16908.pdf 
+<https://arxiv.org/pdf/2006.16908.pdf>
 
-<img src="mdp_hom.png" width="400" 
+<img src="mdp_hom.png" width="400"
 alt="An image visualizing symmetry in cartpole"/>
 
-**Abstract:** 
+**Abstract:**
 This paper introduces MDP homomorphic networks for deep reinforcement learning.
 MDP homomorphic networks are neural networks that are equivariant under
 symmetries in the joint state-action space of an MDP. Current approaches to deep
@@ -24,17 +24,20 @@ We construct MDP homomorphic MLPs and CNNs that are equivariant under either
 a group of reflections or rotations. We show that such networks converge faster
 than unstructured baselines on CartPole, a grid world and Pong.
 
-
 ## Installation
+
 * ```conda env create -f environment.yml```
 * ```pip install gym==0.17```
 * ```pip install -e .```
 
 See if it works:
+
 * ```./tests.sh```
 
 ### Cite
+
 If you use this code in your own work, please cite our paper:
+
 ```
 @inproceedings{vanderpol2020mdp,
   title={{MDP} Homomorphic Networks: Group Symmetries in Reinforcement Learning},

@@ -2,7 +2,8 @@ import torch
 
 from symmetrizer.groups import MatrixRepresentation
 from symmetrizer.nn.modules import BasisLinear
-from symmetrizer.ops import *
+from symmetrizer.ops import get_cartpole_state_group_representations, \
+    get_cartpole_action_group_representations, get_cartpole_invariants
 
 
 class BasisCartpoleNetworkWrapper(torch.nn.Module):

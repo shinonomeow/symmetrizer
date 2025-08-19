@@ -1,0 +1,37 @@
+{
+  "os":  "macOS-15.6-arm64-arm-64bit-Mach-O",
+  "python":  "CPython 3.13.6",
+  "startedAt":  "2025-08-18T07:57:18.609989Z",
+  "program":  "/Users/shino/my_code/reinforcement/symmetrizer/main.py",
+  "codePath":  "main.py",
+  "codePathLocal":  "main.py",
+  "git":  {
+    "remote":  "git@github.com:ElisevanderPol/symmetrizer.git",
+    "commit":  "8dae02bee2ba7132ae4fb07e07020767d280842c"
+  },
+  "email":  "gtx2shino@gmail.com",
+  "root":  "/Users/shino/my_code/reinforcement/symmetrizer",
+  "host":  "shinoair.local",
+  "executable":  "/Users/shino/my_code/reinforcement/symmetrizer/.venv/bin/python3",
+  "cpu_count":  8,
+  "cpu_count_logical":  8,
+  "disk":  {
+    "/":  {
+      "total":  "494384795648",
+      "used":  "311724281856"
+    }
+  },
+  "memory":  {
+    "total":  "17179869184"
+  },
+  "apple":  {
+    "name":  "Apple M2",
+    "ecpuCores":  4,
+    "pcpuCores":  4,
+    "gpuCores":  8,
+    "memoryGb":  16,
+    "swapTotalBytes":  "5368709120",
+    "ramTotalBytes":  "17179869184"
+  },
+  "writerId":  "gwenlzsw6mp6trz1y12xvhbd4uf958g3"
+}

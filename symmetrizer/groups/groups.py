@@ -1,5 +1,6 @@
+from typing import override
 import numpy as np
-from symmetrizer.ops import *
+from symmetrizer.ops import GroupRepresentations
 
 class Group:
     """
@@ -28,30 +29,32 @@ class MatrixRepresentation(Group):
     """
     Representing group elements as matrices
     """
-    def __init__(self, input_matrices, output_matrices):
+    def __init__(self, input_matrices:GroupRepresentations, output_matrices:GroupRepresentations):
         """
         """
-        self.repr_size_in = input_matrices[0].shape[1]
-        self.repr_size_out = output_matrices[0].shape[1]
-        self._input_matrices = input_matrices
-        self._output_matrices = output_matrices
+        self.repr_size_in:int = input_matrices[0].shape[1]
+        self.repr_size_out:int = output_matrices[0].shape[1]
+        self._input_matrices:GroupRepresentations = input_matrices
+        self._output_matrices:GroupRepresentations = output_matrices
 
-        self.parameters = range(len(input_matrices))
+        self.parameters:range = range(len(input_matrices))
 
-    def _input_transformation(self, weights, params):
+    @override
+    def _input_transformation(self, weights, transformation):
         """
         Input transformation comes from the input group
         W F_g z
         """
-        weights = np.matmul(weights, self._input_matrices[params])
+        weights = np.matmul(weights, self._input_matrices[transformation])
         return weights
 
-    def _output_transformation(self, weights, params):
+    @override
+    def _output_transformation(self, weights, transformation):
         """
         Output transformation from the output group
         P_g W z
         """
-        weights = np.matmul(self._output_matrices[params], weights)
+        weights = np.matmul(self._output_matrices[transformation], weights)
         return weights
 
 

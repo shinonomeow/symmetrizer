@@ -1,0 +1,56 @@
+[project]
+name = "symmetrizer"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "gymnasium>=1.2.0",
+    "matplotlib>=3.10.5",
+    "numpy>=2.3.2",
+    "torch>=2.8.0",
+    "tqdm>=4.67.1",
+    "wandb>=0.21.1",
+]
+[tool.black]
+# 每行最大字符数，默认是 88
+line-length = 88
+
+# 支持的 Python 版本
+target-version = ['py311', 'py312', 'py313']
+
+# 包含的文件模式（正则表达式）
+include = '\.pyi?$'
+
+# 排除的文件/目录（正则表达式）
+exclude = '''
+/(
+    \.eggs
+  | \.git
+  | \.hg
+  | \.mypy_cache
+  | \.tox
+  | \.venv
+  | _build
+  | buck-out
+  | build
+  | dist
+)/
+'''
+
+# 在默认排除基础上额外排除
+extend-exclude = '''
+# 以 ^/ 开头的正则只适用于项目根目录的文件
+(
+  ^/foo.py          # 排除根目录的 foo.py
+  | .*_pb2\.py      # 排除项目中所有 Protocol Buffer 生成的文件
+)
+'''
+
+# 强制排除（即使明确指定文件也会排除）
+force-exclude = '''
+/(
+    \.git
+  | migrations
+)/
+'''

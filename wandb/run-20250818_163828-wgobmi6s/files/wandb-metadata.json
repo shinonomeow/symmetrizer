@@ -1,0 +1,17 @@
+{
+  "os":  "macOS-15.6-arm64-arm-64bit-Mach-O",
+  "python":  "CPython 3.13.6",
+  "startedAt":  "2025-08-18T08:38:28.866789Z",
+  "program":  "/Users/shino/my_code/reinforcement/symmetrizer/main.py",
+  "codePath":  "main.py",
+  "codePathLocal":  "main.py",
+  "git":  {
+    "remote":  "git@github.com:ElisevanderPol/symmetrizer.git",
+    "commit":  "8dae02bee2ba7132ae4fb07e07020767d280842c"
+  },
+  "email":  "gtx2shino@gmail.com",
+  "root":  "/Users/shino/my_code/reinforcement/symmetrizer",
+  "host":  "shinoair.local",
+  "executable":  "/Users/shino/my_code/reinforcement/symmetrizer/.venv/bin/python3",
+  "writerId":  "pnhho6saz2x9r3k546xcmh50qpj95bo4"
+}
